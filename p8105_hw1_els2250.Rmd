@@ -75,3 +75,16 @@ mean(pull(.data = problem_2_df, var = factor_vector))
 
 We are able to successfully generate the mean of the numeric and logic vectors; however, the character and factor vectors produced `NA` as the output.
 
+##### Using `as.numeric` to Convert Variable Types:
+To test how R calculates the mean of certain variables, we will attempt to convert logical, character, and factor variables to numeric variables using `as.numeric`. 
+```{r, eval=FALSE}
+as.numeric(problem_2_df$logic_vector)
+as.numeric(problem_2_df$character_vector)
+as.numeric(problem_2_df$factor_vector)
+```
+
+The `as.numeric` function converted the `logic_vector` variable to a binary variable consisting of 0's and 1's, which explains how base R calculated the initial mean for `logic_vector`. R's decision to use 0's and 1's to represent FALSE and TRUE, respectively, explains why the mean for this variable is a decimal between 0 and 1. Since these are established values within R, it will do its best to calculate the mean for logical variables using these definitions. The `as.numeric` function does the same action that base R does when working with logical variables: applies 0's and 1's to correspond to `FALSE` and `TRUE`. 
+
+Initially, R was unable to calculate a mean for the `factor_vector` variable because the strings 'hot', 'warm', and 'cold' did not hold numerical values from which a mean could be calculated. Using the `as_numeric` function, however, the `factor_vector` variable was converted to 1's, 2's, and 3's representing the three levels. These values were assigned alphabetically ('cold' = 1, 'hot' = 2, 'warm' = 3). Similar to the `logic_vector` variable, R needed to apply values to the `factor_vector` variable to determine the mean. It's important to be mindful of the fact that R assigns these values alphabetically and recognize that further elaboration in the code using `levels = ...` to establish the order of the levels may be required to get an accurate mean for specified levels. 
+
+On the other hand, the `character_vector` variable was not able to be converted using the `as.numeric` function. Unlike the `factor_vector` variable, `character_vector` does not hold distinct levels or have an inherent order that R can decipher, even when converted using `as.numeric`. In summary, R is able to convert categorical ordinal variables, such as `factor_vector` to numeric variables and calculate the mean, but cannot do the same for categorical nominal variables, such as `character_vector`, thus explaining why R introduced NA by coercion, both initially and when using `as.numeric`.
