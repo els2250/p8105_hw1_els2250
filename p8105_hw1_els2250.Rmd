@@ -39,3 +39,13 @@ Variable Summary:
 * *Body mass (g)*: `r min(penguins$body_mass_g, na.rm = TRUE)` g to `r max(penguins$body_mass_g, na.rm = TRUE)` g; Mean = `r mean(penguins$body_mass_g, na.rm = TRUE)` g
 * *Sex*: Female, Male
 * *Year*: 2007, 2008, 2009
+
+##### Plot for `penguin` Dataset (& Save):
+Next, we will create a plot of penguin flipper length vs. bill length using `ggplot` and save the plot as a PDF file. 
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point(na.rm = TRUE)
+
+ggsave("flipper_length_vs_bill_length.pdf", w = 6, h = 4)
+```
+
+
