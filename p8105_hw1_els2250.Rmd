@@ -26,3 +26,16 @@ head(penguins)
 mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
 
+##### Summary of Dataset using Inline Code:
+The `penguin` dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. Below, the 8 rows representing the 8 variables in the dataset are summarized using inline code. 
+
+Variable Summary:
+
+* *Species*: Adelie, Chinstrap, Gentoo
+* *Island*: Biscoe, Dream, Torgersen
+* *Bill length (mm)*: Range = `r min(penguins$bill_length_mm, na.rm = TRUE)` mm to `r max(penguins$bill_length_mm, na.rm = TRUE)` mm; Mean = `r mean(penguins$bill_length_mm, na.rm = TRUE)` mm
+* *Bill depth (mm)*: Range = `r min(penguins$bill_depth_mm, na.rm = TRUE)` mm to `r max(penguins$bill_depth_mm, na.rm = TRUE)` mm; Mean = `r mean(penguins$bill_depth_mm, na.rm = TRUE)` mm
+* *Flipper length (mm)*: Range = `r min(penguins$flipper_length_mm, na.rm = TRUE)` mm to `r max(penguins$flipper_length_mm, na.rm = TRUE)` mm; Mean = `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm
+* *Body mass (g)*: `r min(penguins$body_mass_g, na.rm = TRUE)` g to `r max(penguins$body_mass_g, na.rm = TRUE)` g; Mean = `r mean(penguins$body_mass_g, na.rm = TRUE)` g
+* *Sex*: Female, Male
+* *Year*: 2007, 2008, 2009
