@@ -5,3 +5,24 @@ date: 24 September 2022
 output: github_document
 ---
 
+## Problem 1
+First, we need to load the packages that we will be using for this homework assignment.
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+##### Code for Dataset Summary: 
+Next, we need to load the data and briefly view the data to understand important variables and values. 
+
+```{r}
+data("penguins", package = "palmerpenguins")
+
+summary(penguins)
+
+head(penguins)
+
+mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+
